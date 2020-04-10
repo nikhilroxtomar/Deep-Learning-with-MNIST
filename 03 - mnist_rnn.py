@@ -11,6 +11,11 @@ x_train, x_test = x_train/255.0, x_test/255.0
 
 ## Model
 inputs = KL.Input(shape=(28, 28))
+# For RNN
+# x = KL.RNN(64, activation ='relu')(inputs) 
+
+# For LSTM
+# x = KL.LSTM(64)(inputs)
 x = KL.CuDNNGRU(64)(inputs)
 outputs = KL.Dense(10, activation="softmax")(x)
 
